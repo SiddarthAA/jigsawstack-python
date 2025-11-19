@@ -9,7 +9,7 @@ on:
 jobs:
   ruff-format-check:
     name: Ruff Format Check
-    runs-on: ubuntu-latest
+    runs-on: warp-ubuntu-latest-x64-2x
     steps:
       - uses: actions/checkout@v4
       
@@ -73,7 +73,7 @@ jobs:
   all-checks-passed:
     name: All Checks Passed
     needs: [ruff-format-check, test]
-    runs-on: ubuntu-latest
+    runs-on: warp-ubuntu-latest-x64-2x
     if: always()
     steps:
       - name: Verify all checks passed
