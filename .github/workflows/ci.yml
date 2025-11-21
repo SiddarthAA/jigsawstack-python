@@ -9,7 +9,7 @@ on:
 jobs:
   ruff-format-check:
     name: Ruff Format Check
-    runs-on: warp-ubuntu-latest-x64-2x
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       
@@ -21,10 +21,10 @@ jobs:
       - name: Install ruff
         run: pip install ruff
       
-      - name: Check all files with ruff
+      - name: Format check with ruff
         run: |
           ruff check jigsawstack/ --config .github/ruff.toml
-          ruff format --check jigsawstack/ --config .github/ruff.toml
+          ruff format jigsawstack/ --config .github/ruff.toml --check
 
   test:
     name: Test - ${{ matrix.test-file }}
@@ -73,7 +73,7 @@ jobs:
   all-checks-passed:
     name: All Checks Passed
     needs: [ruff-format-check, test]
-    runs-on: warp-ubuntu-latest-x64-2x
+    runs-on: ubuntu-latest
     if: always()
     steps:
       - name: Verify all checks passed
