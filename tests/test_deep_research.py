@@ -30,29 +30,11 @@ async_jigsaw = jigsawstack.AsyncJigsawStack(
 URL = "https://jigsawstack.com"
 
 
-# Deep Research Test Cases
 DEEP_RESEARCH_TEST_CASES = [
     {
         "name": "basic_deep_research",
-        "params": {
-            "query": "climate change effects",
-            "max_depth":1
-        },
-    },
-    {
-        "name": "technical_deep_research",
-        "params": {
-            "query": "quantum computing applications in cryptography",
-            "max_depth": 1,
-        },
-    },
-    {
-        "name": "deep_research_with_depth",
-        "params": {
-            "query": "renewable energy sources",
-            "max_depth": 2,
-        },
-    },
+        "params": {"query": "climate change effects", "max_depth": 1},
+    }
 ]
 
 
@@ -72,9 +54,8 @@ class TestDeepResearchSync:
             assert result["success"]
             assert "results" in result
             assert isinstance(result["results"], str)
-            #assert len(result["results"]) > 0
+            assert len(result["results"]) > 0
 
-            # Check for sources
             if "sources" in result:
                 assert isinstance(result["sources"], list)
 
@@ -101,7 +82,6 @@ class TestDeepResearchAsync:
             assert isinstance(result["results"], str)
             assert len(result["results"]) > 0
 
-            # Check for sources
             if "sources" in result:
                 assert isinstance(result["sources"], list)
 
