@@ -15,6 +15,9 @@ class EmbeddingV2Params(TypedDict):
     url: NotRequired[str]
     file_store_key: NotRequired[str]
     token_overflow_mode: NotRequired[Literal["truncate", "error"]]
+    dimensions: NotRequired[int]
+    instruction: NotRequired[str]
+    query: NotRequired[bool]
     speaker_fingerprint: NotRequired[bool]
 
 
@@ -44,7 +47,9 @@ class EmbeddingV2(ClientConfig):
     @overload
     def execute(self, params: EmbeddingV2Params) -> EmbeddingV2Response: ...
     @overload
-    def execute(self, blob: bytes, options: EmbeddingV2Params = None) -> EmbeddingV2Response: ...
+    def execute(
+        self, blob: bytes, options: EmbeddingV2Params = None
+    ) -> EmbeddingV2Response: ...
 
     def execute(
         self,
