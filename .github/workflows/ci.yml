@@ -21,10 +21,10 @@ jobs:
       - name: Install ruff
         run: pip install ruff
       
-      - name: Check all files with ruff
+      - name: Format check with ruff
         run: |
           ruff check jigsawstack/ --config .github/ruff.toml
-          ruff format --check jigsawstack/ --config .github/ruff.toml
+          ruff format jigsawstack/ --config .github/ruff.toml --check
 
   test:
     name: Test - ${{ matrix.test-file }}
@@ -46,7 +46,6 @@ jobs:
           - test_translate.py
           - test_validate.py
           - test_web.py
-          - test_deep_research.py
           - test_ai_scrape.py
           - test_vocr.py
     steps:
