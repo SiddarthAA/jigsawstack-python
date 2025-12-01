@@ -150,6 +150,10 @@ class VOCRParams(TypedDict):
     url: NotRequired[str]
     file_store_key: NotRequired[str]
     page_range: NotRequired[List[int]]
+    fine_grained: NotRequired[bool]
+    """
+    High fidelity word-level bounding boxes within complex documents. Default: false.
+    """
 
 
 class Word(TypedDict):

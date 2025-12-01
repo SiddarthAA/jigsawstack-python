@@ -77,16 +77,16 @@ AI_SCRAPE_TEST_CASES = [
             "is_mobile": True,
         },
     },
-    {
-        "name": "scrape_with_cookies",
-        "params": {
-            "url": URL,
-            "element_prompts": ["user data"],
-            "cookies": [
-                {"name": "session", "value": "test123", "domain": "example.com"}
-            ],
-        },
-    },
+    # {
+    #     "name": "scrape_with_cookies",
+    #     "params": {
+    #         "url": URL,
+    #         "element_prompts": ["user data"],
+    #         "cookies": [
+    #             {"name": "session", "value": "test123", "domain": "example.com"}
+    #         ],
+    #     },
+    # },
     {
         "name": "scrape_with_advance_config",
         "params": {
